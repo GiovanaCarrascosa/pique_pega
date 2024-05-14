@@ -48,7 +48,7 @@ while rodando:
         movimento.desenhar(tela)
     
         if calvo.mascara.overlap(movimento.mascara,(movimento.pos_x - calvo.pos_x, movimento.pos_y - calvo.pos_y)):
-       
+            movimento.pos_y = -20
             pontuacao = pontuacao + 1
  
     teclas = pygame.key.get_pressed()
