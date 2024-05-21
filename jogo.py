@@ -1,4 +1,5 @@
 import pygame
+import random
 from personagem import Personagem
 from movimento import Obstaculo
 
@@ -49,6 +50,7 @@ while rodando:
     
         if calvo.mascara.overlap(movimento.mascara,(movimento.pos_x - calvo.pos_x, movimento.pos_y - calvo.pos_y)):
             movimento.pos_y = -20
+            movimento.pos_x = random.randint(1, 750)
             pontuacao = pontuacao + 1
  
     teclas = pygame.key.get_pressed()
