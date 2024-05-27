@@ -6,6 +6,11 @@ from movimento import Obstaculo
 fim = Personagem ("imagens/tela fim.png",800,600,0,0)
 pontuacao = 0
 vida = 10
+
+pygame.mixer.init()
+musica = pygame.mixer.Sound("taylor swift.mp3")
+musica.set_volume(1.0)
+
 pygame.init()
 
 tela = pygame.display.set_mode ((800,600)) 
@@ -92,7 +97,7 @@ while rodando:
             
             vida=vida-1
  
-  
+    musica.play()
 
     fonte = pygame.font.SysFont("Berlin Sans FB Demi", 18, False,False)
 
