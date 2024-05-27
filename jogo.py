@@ -33,16 +33,11 @@ Obstaculo("imagens/tesoura.png", 70,60,-19),
 Obstaculo("imagens/secador.png", 70,60,-19),
 ]
 
-
-    
 calvo = Personagem ("imagens/personagem calvo.png",170,180,295,420)
-
-
 
 
 CABELELEIRO = pygame.image.load("imagens/cabeleleiro.png") 
 CABELELEIRO = pygame.transform.scale(CABELELEIRO,(800,600)) 
-
 
 
 clock = pygame.time.Clock() 
@@ -50,26 +45,23 @@ clock = pygame.time.Clock()
 rodando = True
 while rodando: 
     for evento in pygame.event.get(): 
-        if evento.type == pygame.MOUSEBUTTONDOWN:    
-            if vida >= 0:
-                pygame.MOUSEBUTTONDOWN
-                vida = 10
-                pontuacao = 0
+           
+            if vida == 0:
+                rodando = False
+            else:
+                calvo.movimentar_via_setas()
+                calvo.desenhar(tela)
 
-
-        if evento.type == pygame.QUIT: 
-            rodando = False 
-
-    tela.blit(CABELELEIRO,(0,0))
+            if evento.type == pygame.QUIT: 
+                rodando = False 
 
     tela.blit(CABELELEIRO,(0,0))
-    if vida == 0:
-        fim.desenhar(tela)
-    else:
-        calvo.movimentar_via_setas()
-        calvo.desenhar(tela)
 
-        for movimento in lista_cabelos:
+    calvo.movimentar_via_setas()
+    calvo.desenhar(tela)
+        
+
+    for movimento in lista_cabelos:
             movimento.correr()
             movimento.desenhar(tela)
     
